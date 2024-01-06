@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Surfer</title>
+</head>
+
+<body>
+
+    <h1>Screen Surfer</h1>
+
+    <div>
+        <p>Choose your format:</p>
+        <a href="/books">Books</a> | <a href="/movies">Movies</a>
+    </div>
+
+    <div id="content-container">
+        <!-- Content will be dynamically loaded here using Flask -->
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+</html>
+
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h2>Books</h2>
+
+    {% for book in books %}
+        <p>{{ book.title }} by {{ book.author }}</p>
+    {% endfor %}
+
+{% endblock %}
